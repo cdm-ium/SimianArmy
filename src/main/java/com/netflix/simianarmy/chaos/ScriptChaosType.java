@@ -74,9 +74,11 @@ public abstract class ScriptChaosType extends ChaosType {
         LOGGER.info("Running script for {} on instance {}", getKey(), instance.getInstanceId());
 
         SshClient ssh = instance.connectSsh();
+        LOGGER.info("Ssh connection established");
 
         String filename = getKey().toLowerCase() + ".sh";
         URL url = Resources.getResource(ScriptChaosType.class, "/scripts/" + filename);
+        LOGGER.info("Get Script Resource");
         String script;
         try {
             script = Resources.toString(url, Charsets.UTF_8);

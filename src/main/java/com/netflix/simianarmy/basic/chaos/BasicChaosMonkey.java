@@ -89,6 +89,8 @@ public class BasicChaosMonkey extends ChaosMonkey {
         allChaosTypes.add(new NetworkCorruptionChaosType(cfg));
         allChaosTypes.add(new NetworkLatencyChaosType(cfg));
         allChaosTypes.add(new NetworkLossChaosType(cfg));
+        LOGGER.info("I am compiling, fail docker should happen");
+        allChaosTypes.add(new FailDockerContainerChaosType(cfg));
 
         TimeUnit freqUnit = ctx.scheduler().frequencyUnit();
         if (TimeUnit.DAYS == freqUnit) {

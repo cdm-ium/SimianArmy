@@ -119,7 +119,10 @@ public class ChaosInstance {
             throw new IllegalStateException();
         }
 
+        LOGGER.info("getting login credentials");
         LoginCredentials credentials = sshConfig.getCredentials();
+
+        LOGGER.info("making ssh connection with cloud client");
         SshClient ssh = cloudClient.connectSsh(instanceId, credentials);
 
         return ssh;
